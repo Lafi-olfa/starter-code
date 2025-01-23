@@ -1,58 +1,47 @@
-const clickButton = () => {
+clickButton=()=>{
     const navbarElements = document.querySelector('.navbar');
     navbarElements.classList.toggle('active');
-};
-
+}
 fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-        const { destinations } = data; // Destructuration pour accéder aux destinations
-        const destinationImage = document.querySelector('#destinationImage');
-        const destinationDetails = document.querySelector('#destinationDetails');
+  .then((response) => response.json())
+  .then((data) => {
+    const { destinations } = data;
+    const destinationImage = document.querySelector('#destinationImage');
+    const navigationButtons = document.getElementById('navigationButtons');
+    const destinationDetails = document.querySelector('#destinationDetails');
+    const destinationName = document.querySelector('#destinationName');
+    const destinationDistance = document.querySelector('#distance');
+    const destinationTravel = document.querySelector('#travel');
 
-        // Crée des fragments pour minimiser les manipulations directes du DOM
-        const imageFragment = document.createDocumentFragment();
-        const detailsFragment = document.createDocumentFragment();
+    let currentIndex = 0;
+    const updateContent = (index) => {
+      const { images, name, description, distance, travel } = destinations[index];
 
-        destinations.forEach(({ images, name, description, distance, travel }) => {
-            
-            // Image
-            const newDestinationImage = document.createElement('img');
-            newDestinationImage.src = images.png;
-            imageFragment.appendChild(newDestinationImage);
+      destinationImage.innerHTML = ''; 
+      const newImage = document.createElement('img');
+      newImage.src = images.png;
+      newImage.style.width = '150px';
+      destinationImage.appendChild(newImage);
 
-            // Name
-            const newDestinationName = document.createElement('h1');
-            newDestinationName.textContent = name;
-            detailsFragment.appendChild(newDestinationName);
+      
+      destinationName.textContent = name;
+      destinationDetails.textContent = description;
+      destinationDistance.textContent = `AVG. DISTANCE ${distance}`;
+      destinationTravel.textContent = `EST. TRAVEL TIME ${travel}`;
+    };
 
-            // Description
-            const newDestinationDescription = document.createElement('p');
-            newDestinationDescription.textContent = description;
-            detailsFragment.appendChild(newDestinationDescription);
-
-            // Crée une div pour regrouper distance et travel
-            const detailContainer = document.createElement('div');
-            detailContainer.style.display = 'flex';
-            detailContainer.style.flexDirection = 'column';
-            detailContainer.style.gap = '10px'; // Espacement optionnel
-
-            // Distance
-            const newDestinationDistance = document.createElement('p');
-            newDestinationDistance.textContent = `Distance: ${distance}`;
-            detailContainer.appendChild(newDestinationDistance);
-
-            // Travel
-            const newDestinationTravel = document.createElement('p');
-            newDestinationTravel.textContent = `Travel time: ${travel}`;
-            detailContainer.appendChild(newDestinationTravel);
-
-            detailsFragment.appendChild(detailContainer);
-        });
-
-        destinationImage.appendChild(imageFragment);
-        destinationDetails.appendChild(detailsFragment);
-    })
-    .catch(error => {
-        console.error('Erreur lors du chargement du fichier JSON:', error);
+    destinations.forEach((destination, index) => {
+      const button = document.createElement('button');
+      button.textContent = destination.name;
+      button.addEventListener('click', () => {
+        currentIndex = index;
+        updateContent(currentIndex);
+      });
+      navigationButtons.appendChild(button);
     });
+
+    updateContent(currentIndex);
+  })
+  .catch((error) => {
+    console.error('Erreur lors du chargement du fichier JSON:', error);
+  });
