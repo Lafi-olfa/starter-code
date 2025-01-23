@@ -8,18 +8,39 @@
   <title>Frontend Mentor | Space tourism website</title>
 </head>
 <body>
-<section>
-    <h1>01 Pick your destination</h1>
-
-    <div>
-        <article id="destinationImage">
-        </article>
-        <article id="destinationDetails">
-           
-        </article>
-    </div>
-</section>
-
+    <header class="header">
+        <div>
+          <img src="./assets/shared/logo.svg" alt="Tourism Space" class="logo">
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="/"> <span>00 </span>HOME</a>  </li>
+            <li><a href="./destination.html"><span>01 </span>DESTINATION </a> </li>
+            <li><span>02 </span>CREW</li>
+            <li><span>03 </span>TECHNOLOGY</li>
+          </ul>
+        </nav>
+        <div class="icon-bars">
+          <button class="icon" onclick="clickButton()">
+            <i class="fa-solid fa-bars"></i>    </button>
+        </div>
+      </header>
+    <section id="destination">
+      <div class="overlay">
+        <h1>01 Pick your destination</h1>
+    
+        <div class="detinationsDetail">
+          <article id="destinationImage"></article>
+          <div id="navigationButtons"></div>
+          <article id="destinationName"></article>
+          <article id="destinationDetails"></article>
+          <div class="container">
+          <p id="distance"></p>
+          <p id="travel"></p>
+          </div>
+        </div>
+      </div>
+    </section>
 <script src="./index.js"></script>
 <script src="https://kit.fontawesome.com/b154bdd953.js" crossorigin="anonymous"></script>
 </body>
