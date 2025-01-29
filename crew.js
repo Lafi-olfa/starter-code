@@ -38,8 +38,9 @@ fetch('data.json')
         const buttons = navigationButtons.querySelectorAll('button');
         buttons.forEach(btn => btn.classList.remove('active'));
 
-        // Ajouter la classe active au bouton cliqué
-        button.classList.add('active');
+      currentIndex = index;
+      button.classList.toggle('active');
+      updateContent(currentIndex);
 
     });
     navigationButtons.appendChild(button);
