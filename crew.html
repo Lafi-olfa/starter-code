@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Space tourism website</title>
+</head>
+<body>
+    <header class="header">
+        <div>
+          <img src="./assets/shared/logo.svg" alt="Tourism Space" class="logo">
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="/"> <span>00 </span>HOME</a>  </li>
+            <li><a href="./destination.html"><span>01 </span>DESTINATION </a> </li>
+            <li><span>02 </span>CREW</li>
+            <li><span>03 </span>TECHNOLOGY</li>
+          </ul>
+        </nav>
+        <div class="icon-bars">
+          <button class="icon" onclick="clickButton()">
+            <i class="fa-solid fa-bars"></i>    </button>
+        </div>
+      </header>
+      <section class="home crew">
+        <h1>02 MEET YOUR CREW</h1>
+        <div id="crews-conatiner" style="padding-top: 20px;">
+          <article id="crewImage">
+          </article>
+          <article id="crewDescription">
+            <h2 id="crewRole"> </h2>
+            <h2 id="crewName"></h2>
+            <p id="crewBio"></p>
+            <div  id="navigationButtons"style="text-align: center;">
+            </div>
+          </article>
+        </div>
+      </section>
+<script src="./crew.js"></script>
+<script src="https://kit.fontawesome.com/b154bdd953.js" crossorigin="anonymous"></script>
+</body>
+</html> 
