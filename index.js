@@ -20,7 +20,6 @@ fetch('data.json')
       destinationImage.innerHTML = ''; 
       const newImage = document.createElement('img');
       newImage.src = images.png;
-      newImage.style.width = '150px';
       destinationImage.appendChild(newImage);
 
       
@@ -45,3 +44,4 @@ fetch('data.json')
   .catch((error) => {
     console.error('Erreur lors du chargement du fichier JSON:', error);
   });
+ 
