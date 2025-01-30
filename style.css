@@ -49,35 +49,31 @@
     border: none;
     cursor: pointer;
 }
-
-.home{
-    background-image: url('./assets/home/background-home-mobile.jpg');
+.section-background {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+}
+.home{
+    background-image: url('./assets/home/background-home-mobile.jpg');
 }
 .destination{
     background-image: url('./assets/destination/background-destination-mobile.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
 }
 .crew{
     background-image: url('./assets/crew/background-crew-mobile.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
 }
-.home.destination h1, .home.crew h1, #distance, #travel {
+.technology{
+    background-image: url('./assets/technology/background-technology-mobile.jpg');
+}
+.home.destination h1, .home.crew h1, #distance, #travel, .home.technology h1 {
     display: none;
 }
 
-.destination {
+.destination, .crew, .technology{
     padding: 61px 5px 0; 
 }
-.crew{
-    padding: 61px 5px 0;
-}
+
 #navigationButtons button {
     background: none;
     border: none;
@@ -94,12 +90,12 @@
     text-decoration: underline;
 }
 
-#destinationImage img, #crewImage img {
+#destinationImage img, #crewImage img, #technologyImage img {
     width: 150px;
     margin-left: 100px;
 }
 
-#destinationName , #crewRole, #crewName{
+#destinationName , #crewRole, #crewName, #technologyName{
     text-align: center;
     font-size: 20px;
     font-weight: bold;
@@ -108,8 +104,9 @@
     text-transform: uppercase;
 }
 
-#destinationDetails, #crewBio {
-    text-align: center;
+
+#destinationDetails, #crewBio, #technologyDescription {
+    text-align:center;
     color: white;
 }
 
@@ -171,24 +168,44 @@
     .crew {
         background-image: url('./assets/crew/background-crew-tablet.jpg');
     }
-
+    .technology {
+        background-image: url('./assets/technology/background-technology-tablet.jpg');
+    }
     #destinationImage img , #crewImage img{
         width: 350px;
     }
-
+    #technologyImage img{
+        width: 257px;
+    }
     #navigationButtons button {
         font-size: 35px;
-    }
+        border: 1px solid #dddada;
+        border-radius: 50%;
+        margin-bottom: 5px;    }
     #crews-conatiner{
         display: flex;
     }
-
+    #technologys-conatiner{
+        display: flex;
+    }
     #destinationName, #crewRole #crewName {
         font-size: 52px;
     }
+    #technologyName {
+        font-size: 35px;
+    }
+    #technologyDescriptionContainer{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+    }
 
-    #destinationDetails, #crewBio {
+    #destinationDetails, #crewBio{
         font-size: 20px;
+    }
+    #technologyDescription{
+        font-size: 18px;
     }
 
     .home.destination h1 {
@@ -197,7 +214,7 @@
         padding-left: 50px;
         margin-top: 50px;
     }
-    .home.crew h1 {
+    .home.crew h1, .home.technology h1{
         display: block;
         color: white;
         padding-left: 50px;
@@ -214,7 +231,9 @@
     #crewDescription, #crewImage img{
         width: 50%;
     }
-  
+ .technologyDescriptionFlex{
+    margin-left: 16px;
+ }
 }
 
 @media (min-width: 1024px) {
@@ -227,14 +246,18 @@
     .crew {
         background-image: url('./assets/crew/background-crew-desktop.jpg');
     }
+    .technology {
+        background-image: url('./assets/technology/background-technology-desktop.jpg');
+    }
 
-    #destinationImage img {
+    #destinationImage img , #technologyImage img{
         width: 300px;
     }
 
     .home .overlay {
         flex-direction: row;
     }
+    
 }
 
 @keyframes pulse {
